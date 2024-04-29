@@ -1,10 +1,28 @@
 <template>
   <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+    <router-link to="/">Liste des films</router-link> |
+    <router-link to="/register">Inscription</router-link> |
+    <router-link to="/login">Connexion</router-link> |
+    <button @click="logout">Déconnexion</button>
   </nav>
-  <router-view/>
+  <router-view />
 </template>
+
+<script>
+import userServices from "@/services/userService";
+
+export default {
+  methods: {
+    async logout() {
+      try {
+        await userServices.logout();
+      } catch (e) {
+        console.error(e);
+      }
+    },
+  },
+};
+</script>
 
 <style>
 #app {
