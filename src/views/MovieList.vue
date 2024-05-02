@@ -43,7 +43,7 @@ export default {
         updateMovie(id){
             this.$router.push({ name: 'UpdateMovie', params: {id} })
         },
-        deletePost(id){
+        deleteMovie(id){
             movieService.deleteMovie(id)
             .then(() => {this.fetchMovies()})
             .catch(e => console.error(e))

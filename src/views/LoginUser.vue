@@ -21,6 +21,7 @@
 <script>
 
 import userService from '@/services/userService'
+import { mapActions } from 'vuex'
 
     export default {
         data(){
@@ -30,10 +31,11 @@ import userService from '@/services/userService'
         },
 
         methods: {
-
+            ...mapActions(['loginUser']),
             async login(){
                 try{
                     await userService.login(this.userData)
+                    this.loginUser(this.userData.email)
                     console.log('connecté avec succès!')
                     this.$router.push('/');
                 } catch(e){

@@ -1,10 +1,13 @@
 <template>
     <div v-if="movie">
-        <h1>{{ movie.title }}</h1>
-        <p>{{ movie.synopsis }}</p>
-        <p>{{ movie.release_date }}</p>
-        <p>{{ movie.director }}</p>
-        <p>{{ movie.genre }}</p>
+        <h1>Title: {{ movie.title }}</h1>
+        <p>Synopsis: {{ movie.synopsis }}</p>
+        <p> Release year: {{ movie.release_date }}</p>
+        <p>Director: {{ movie.director }}</p>
+            <p>Genre(s)</p>
+        <div v-for="(categ, index) in movie.categories" :key="index">
+            <span>{{ categ.name }}</span>
+        </div>
     </div>
 </template>
 

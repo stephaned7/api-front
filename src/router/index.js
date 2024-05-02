@@ -24,10 +24,10 @@ const routes = [
     name: "CreateMovie",
     component: CreateMovie,
     beforeEnter: (to, from, next) => {
-      if (store.getters.isLoogedIn) {
+      if(store.getters.isLoggedIn){
         next();
-      } else {
-        next("/login");
+      }else{
+        next('/login')
       }
     },
   },
@@ -37,10 +37,10 @@ const routes = [
     component: UpdateMovie,
     props: true,
     beforeEnter: (to, from, next) => {
-      if (store.getters.isLoogedIn) {
+      if(store.getters.isLoggedIn){
         next();
-      } else {
-        next("/login");
+      }else{
+        next('/login')
       }
     },
   },
