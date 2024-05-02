@@ -24,5 +24,11 @@ export default {
     },
     deleteMovie(id){
         return apiClient.delete(`movies/${id}`)
+    },
+    likeMovie(id){
+        return apiClient.post(`movies/${id}/like`)
+    },
+    seeLikesAmount(id){
+        return apiClient.get(`movies/${id}/likes`)
     }
 }
