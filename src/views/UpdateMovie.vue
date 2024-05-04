@@ -22,6 +22,11 @@
       <input type="text" id="releaseDate" v-model="movie.release_date" />
     </div>
 
+    <div>
+      <label for="trailer">Trailer</label>
+      <input type="text" id="trailer" v-model="movie.trailer">
+    </div>
+
 <div v-for="category in categories" :key="category.id">
   <input
     type="checkbox"
@@ -49,6 +54,7 @@ export default {
         synopsis: "",
         director: "",
         releaseDate: "",
+        trailer: "",
         categories: [],
       },
       categories: [],

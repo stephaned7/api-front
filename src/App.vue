@@ -1,6 +1,7 @@
 <template>
   <nav>
     <router-link to="/">Liste des films</router-link> |
+    <router-link to="/categories">Categories</router-link> |
     <router-link to="/register">Inscription</router-link> |
     <router-link to="/login">Connexion</router-link> |
     <button @click="logout">Déconnexion</button>
