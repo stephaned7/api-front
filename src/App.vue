@@ -3,7 +3,11 @@
     <router-link to="/">Liste des films</router-link> |
     <router-link to="/categories">Categories</router-link> |
     <router-link to="/register">Inscription</router-link> |
-    <router-link to="/login">Connexion</router-link> |
+    <router-link to="/login" v-if="!isLoggedIn">Connexion</router-link> |
+    <router-link to="/userList" v-if="getHighestRole(user.roles) === 'Admin'"
+      >Liste des utilisateurs</router-link
+    >
+    |
     <button @click="logout">Déconnexion</button>
   </nav>
   <router-view />
@@ -13,12 +17,32 @@
 import userServices from "@/services/userService";
 
 export default {
+  data() {
+    return {
+      user: {},
+    };
+  },
+
   methods: {
     async logout() {
       try {
         await userServices.logout();
+        this.$router.push("/");
       } catch (e) {
         console.error(e);
+      }
+    },
+
+    getHighestRole(roles) {
+      if (!roles) {
+        return "No role";
+      }
+      if (roles.includes("ROLE_ADMIN")) {
+        return "Admin";
+      } else if (roles.includes("ROLE_BANNED")) {
+        return "Banned";
+      } else {
+        return "User";
       }
     },
   },

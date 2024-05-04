@@ -19,4 +19,16 @@ export default {
     logout(){
         return apiClient.post('/logout')
     },
+    getUserList(){
+        return apiClient.get('/userList')
+    },
+    banUser(id){
+        return apiClient.put(`userBan/${id}`)
+    },
+    unbanUser(id){
+        return apiClient.put(`userUnban/${id}`)
+    },
+    promoteUser(id){
+        return apiClient.put(`userPromote/${id}`)
+    }
 }
