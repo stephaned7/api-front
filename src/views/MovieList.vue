@@ -1,14 +1,16 @@
 <template>
   <div>
     <h1>Liste des films</h1>
-    <button @click="createMovie">Ajouter un film</button>
+    <button @click="createMovie" class="addBtn">Ajouter un film</button>
 
     <ul>
-      <li v-for="movie in movies" :key="movie.id">
-        {{ movie.title }}
-        <button @click="viewDetails(movie.id)">Voir les details</button>
-        <button @click="updateMovie(movie.id)">Modifier le film</button>
-        <button @click="deleteMovie(movie.id)">Supprimer le film</button>
+      <li v-for="movie in movies" :key="movie.id" class="movieCard">
+        <span>{{ movie.title }}</span>
+        <div class="btnContainer">
+        <button class="details" @click="viewDetails(movie.id)">Voir les details</button>
+        <button class="edit" @click="updateMovie(movie.id)">Modifier le film</button>
+        <button class="delete" @click="deleteMovie(movie.id)">Supprimer le film</button>
+      </div>
       </li>
     </ul>
   </div>

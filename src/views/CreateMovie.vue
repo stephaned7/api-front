@@ -32,7 +32,7 @@
         <input type="checkbox" :value="categ.id" @change="updateCategs($event, categ.id)" />
       </div>
 
-      <button type="submit">Ajouter le film</button>
+      <button type="submit" class="addBtn">Ajouter le film</button>
     </form>
   </div>
 </template>

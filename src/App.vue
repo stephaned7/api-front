@@ -1,15 +1,17 @@
 <template>
-  <nav>
-    <router-link to="/">Liste des films</router-link> |
-    <router-link to="/categories">Categories</router-link> |
-    <router-link to="/register">Inscription</router-link> |
-    <router-link to="/login" v-if="!isLoggedIn">Connexion</router-link> |
-    <router-link to="/userList" v-if="getHighestRole(user.roles) === 'Admin'"
-      >Liste des utilisateurs</router-link
+  <nav class="menu-bar">
+    <router-link class="nav-item" to="/">Liste des films</router-link>
+    <router-link class="nav-item" to="/categories">Categories</router-link>
+    <router-link class="nav-item" to="/register">Inscription</router-link>
+    <router-link class="nav-item" to="/login" v-if="!isLoggedIn">Connexion</router-link
     >
-    |
-    <button @click="logout">Déconnexion</button>
+    <router-link class="nav-item" to="/userList">Liste des utilisateurs</router-link
+    >
+    <router-link to="/" class="nav-item logout" @click="logout"
+      >Déconnexion</router-link
+    >
   </nav>
+
   <router-view />
 </template>
 
@@ -32,19 +34,6 @@ export default {
         console.error(e);
       }
     },
-
-    getHighestRole(roles) {
-      if (!roles) {
-        return "No role";
-      }
-      if (roles.includes("ROLE_ADMIN")) {
-        return "Admin";
-      } else if (roles.includes("ROLE_BANNED")) {
-        return "Banned";
-      } else {
-        return "User";
-      }
-    },
   },
 };
 </script>
@@ -56,18 +45,5 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-}
-
-nav {
-  padding: 30px;
-}
-
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
 }
 </style>

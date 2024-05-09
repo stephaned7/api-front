@@ -19,7 +19,7 @@
     <div v-for="(categ, index) in movie.categories" :key="index">
       <span>{{ categ.name }}</span>
     </div>
-    <button @click="likeMovie()">Like this movie</button>
+    <button @click="likeMovie()" class="addBtn">Like this movie</button>
     <p>Nombre de like: {{ likes }}</p>
   </div>
 </template>

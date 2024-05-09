@@ -1,14 +1,16 @@
 <template>
   <div>
     <h1>Liste des catégories</h1>
-    <button @click="createCategory">Ajouter une catégorie</button>
+    <button class="addBtn" @click="createCategory">Ajouter une catégorie</button>
 
     <ul>
       <li v-for="categ in categories" :key="categ.id">
-        {{ categ.name }}
-        <button @click="viewCategsMovies(categ.id)">Voir les films</button>
-        <button @click="updateCategory(categ.id)">Modifier la catégorie</button>
-        <button @click="deleteCategory(categ.id)">Supprimer la catégorie</button>
+        <span>{{ categ.name }}</span>
+        <div class="btnContainer">
+        <button class="details" @click="viewCategsMovies(categ.id)">Voir les films</button>
+        <button class="edit" @click="updateCategory(categ.id)">Modifier la catégorie</button>
+        <button class="delete" @click="deleteCategory(categ.id)">Supprimer la catégorie</button>
+      </div>
       </li>
     </ul>
   </div>
